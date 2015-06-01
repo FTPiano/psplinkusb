@@ -937,9 +937,7 @@ char** shell_completion(const char *text, int start, int end)
 	{
 		if(strchr(text, '.') || strchr(text, '/'))
 		{
-			#ifndef __APPLE__
 			rl_completion_display_matches_hook = completion_display;
-			#endif
 			matches = rl_completion_matches(text, filename_gen);
 		}
 		else
@@ -949,9 +947,7 @@ char** shell_completion(const char *text, int start, int end)
 	}
 	else
 	{
-		#ifndef __APPLE__
 		rl_completion_display_matches_hook = completion_display;
-		#endif
 		if(text[0] == '@')
 		{
 			matches = rl_completion_matches(text, uid_gen);
